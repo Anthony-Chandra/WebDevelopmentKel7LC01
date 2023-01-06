@@ -14,24 +14,26 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">My Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand fs-3" href="#">Aphecarini</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                    <li class="nav-item fs-5">
                         <a class="nav-link active" aria-current="page" href="#home">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item fs-5">
                         <a class="nav-link" href="#about">About Me</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item fs-5">
                         <a class="nav-link" href="#myProject">Project</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item fs-5">
                         <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item fs-5">
+                        <a class="btn btn-outline-primary size" href="/register" role="register">Register </a>
+                    </li>
+                    <li class="nav-item fs-5">
+                        <a class="btn btn-outline-primary size" href="/login" role="login">Login </a>
                     </li>
                 </ul>
             </div>

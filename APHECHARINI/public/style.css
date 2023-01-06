@@ -12,6 +12,27 @@
     padding-top: 3rem;
 }
 
+.nav-link {
+    margin-left: 2rem;
+}
+
 .size {
-    margin-left: 1rem;
+    margin-left: 2rem;
+}
+
+.login-background {
+    background-image: linear-gradient(to bottom right, white, grey);
+}
+
+.centering {
+    text-align: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.margin-plus {
+    padding-bottom: 20%;
 }
