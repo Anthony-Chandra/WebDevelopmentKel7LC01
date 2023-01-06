@@ -1,0 +1,17 @@
+.content {
+    padding-top: 6rem;
+    padding-bottom: 1rem;
+    background-color: kads;
+}
+
+.active {
+    color: green;
+}
+
+.navbar {
+    padding-top: 3rem;
+}
+
+.size {
+    margin-left: 1rem;
+}
