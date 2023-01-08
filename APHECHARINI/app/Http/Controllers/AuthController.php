@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
@@ -35,10 +37,33 @@ class AuthController extends Controller
             return redirect('/')->withSuccess('Succesfully loggedin');
         }
 
-        return redirect()->back()->withErrors('Wrong credentials');
+        return redirect()->back()->withErrors('Invalid Username Or Password');
     }
 
     public function register(){
         return view('register');
+    }
+
+    public function registerProcess(Request $req){
+        $req->validate([
+            'username'=>'required|unique:users,username|min:4',
+            'email'=>'required|unique:users,email|email',
+            'password'=>'required|alpha_num|min:6|confirmed',
+            'role'=>'required'
+        ]);
+
+        $user = new User();
+        $user->username = $req->username;
+        $user->email = $req->email;
+        $user->phone = $req->phone;
+        $user->role = $req->role;
+        $user->password = Hash::make($req->password);
+        $user->save();
+        return redirect('/register')->with('alert','Register Success');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('login');
     }
 }

@@ -36,3 +36,33 @@ a {
 .margin-plus {
     padding-bottom: 20%;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+h1 {
+    font-size: 400%;
+}
+
+.bigger {
+    font-size: 170%;
+}
+
+.width-toyota {
+    margin: 10px;
+    width: 60%;
+}
+.width-jeep {
+    width: 50%;
+    height: 75%;
+}
+.width-mercy {
+    width: 70%;
+}

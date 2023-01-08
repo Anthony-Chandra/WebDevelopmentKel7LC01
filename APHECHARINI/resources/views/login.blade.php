@@ -14,8 +14,14 @@
                 <div class="col-md-12 my-1 py-1 ">
                     <p class="fs-5 text-white">Dont Have An Account?<a class="text-primary" href="/register"> Register</a></p>
                 </div>
+
                 <div class="col-md-12 d-flex justify-content-center">
                     <div class="col-md-4">
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first() }}
+                            </div>
+                        @endif
                         <form method="POST" action="/loginProcess">
                             @csrf
                             <div class="form-outline mb-4">
