@@ -2,7 +2,7 @@
 @section('title', 'home')
 @section('content')
     <div class="container my-5 py-5">
-        <div class="h-100 d-flex flex-column align-items-center justify-content-center">
+        <div class="h-100 my-5 d-flex flex-column align-items-center justify-content-center">
             <div class="row">
                 <div class="col-md-6 ps-5">
                     <h1 class="display-4 fw-bold">Get Your Ideal Family Car Book Soon !</h1>

@@ -54,15 +54,3 @@ h1 {
 .bigger {
     font-size: 170%;
 }
-
-.width-toyota {
-    margin: 10px;
-    width: 60%;
-}
-.width-jeep {
-    width: 50%;
-    height: 75%;
-}
-.width-mercy {
-    width: 70%;
-}
