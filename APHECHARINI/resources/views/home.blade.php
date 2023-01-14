@@ -10,15 +10,15 @@
                     <p class="h3 fw-normal">Book It Now !</p>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('/storage/assets/car.jpeg') }}" alt="">
+                    <img src="{{ asset('assets/car.jpeg') }}" alt="">
                 </div>
             </div>
             <div class="row mx-5">
-                <div class="col-md-3"><img src="{{ asset('/storage/assets/mercedes.png') }}"" alt="" class="w-50">
+                <div class="col-md-3"><img src="{{ asset('assets/mercedes.png') }}"" alt="" class="w-50">
                 </div>
-                <div class="col-md-3"><img src="{{ asset('/storage/assets/toyota_2.png') }}" alt="" class="w-50">
+                <div class="col-md-3"><img src="{{ asset('assets/toyota_2.png') }}" alt="" class="w-50">
                 </div>
-                <div class="col-md-3"><img src="{{ asset('/storage/assets/jeep.png') }}" alt="" class="w-50">
+                <div class="col-md-3"><img src="{{ asset('assets/jeep.png') }}" alt="" class="w-50">
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="h4 align-self-center">And more ...</div>
