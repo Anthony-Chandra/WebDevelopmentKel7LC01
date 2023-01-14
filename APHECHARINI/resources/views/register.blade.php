@@ -5,14 +5,11 @@
     <section class="content login-background">
         <div class="container centering">
             <div class="row ">
-                <div class="col-md-12 mt-5">
-                    <p class="fs-5 text-white">START FOR FREE</p>
+                <div class="col-md-12 my-1 py-1 ">
+                    <p class="fs-4 text-white fw-bold">Create New Account For Free</p>
                 </div>
                 <div class="col-md-12 my-1 py-1 ">
-                    <p class="fs-4 text-white fw-bold">Create new account</p>
-                </div>
-                <div class="col-md-12 my-1 py-1 ">
-                    <p class="fs-5 text-white">Already have an account?<a class="text-primary" href="/login">Sign in</a>
+                    <p class="fs-5 text-white">Already have an account? <a class="text-primary" href="/login">Sign in</a>
                     </p>
                 </div>
                 <div class="col-md-12 d-flex justify-content-center">
@@ -25,7 +22,6 @@
                         @if (session()->has('alert'))
                             <div class="alert alert-success alert-dismissible" role="alert">
                                 <strong>{{ session('alert') }}</strong>
-                                <button type="button" class="close" data-dismiss="alert">
                                 </button>
                             </div>
                         @endif

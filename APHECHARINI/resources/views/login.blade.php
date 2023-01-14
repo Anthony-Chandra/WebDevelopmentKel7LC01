@@ -5,9 +5,6 @@
     <section class="content login-background">
         <div class="container centering  margin-plus">
             <div class="row ">
-                <div class="col-md-12 mt-5">
-                    <p class="fs-5 text-white">START FOR FREE</p>
-                </div>
                 <div class="col-md-12 my-1 py-1 ">
                     <p class="fs-4 text-white fw-bold">Sign In</p>
                 </div>
