@@ -31,7 +31,7 @@
                         <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item fs-5">
-                        <a class="nav-link" href="#about">Car Catalougue</a>
+                        <a class="nav-link" href="/catalogue">Car Catalougue</a>
                     </li>
                     <li class="nav-item fs-5">
                         <a class="nav-link" href="#myProject">Contact Us</a>
