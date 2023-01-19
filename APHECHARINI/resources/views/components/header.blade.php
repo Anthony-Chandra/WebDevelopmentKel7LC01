@@ -23,7 +23,7 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fs-3" href="#"><img src="{{ asset('/storage/assets/logo.png') }}"
+            <a class="navbar-brand fs-3" href="#"><img src="{{ asset('storage/assets/logo.png') }}"
                     width="220px" alt=""></a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
