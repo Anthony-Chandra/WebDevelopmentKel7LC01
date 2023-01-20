@@ -12,6 +12,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/0b65baf2e5.js" crossorigin="anonymous"></script>
     <title>@yield('title')</title>
     <style>
         .dropdown-toggle::after {
@@ -37,7 +38,7 @@
                         <a class="nav-link" href="#myProject">Contact Us</a>
                     </li>
                     <li class="nav-item fs-5">
-                        <a class="nav-link" href="#contact">Help</a>
+                        <a class="nav-link" href="">Help</a>
                     </li>
                     @auth
                         <li class="nav-item dropdown">

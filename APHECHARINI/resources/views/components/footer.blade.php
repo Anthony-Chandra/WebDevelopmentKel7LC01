@@ -1,4 +1,4 @@
-<footer class="d-flex px-2 py-2 justify-content-around" style="background-color: rgba(84,84,84,255)">
+<footer class="d-flex px-2 py-2 justify-content-around mt-auto" style="background-color: rgba(84,84,84,255)">
     <div class="col-4 d-flex align-items-center">
         <h1 class="h4 text-light">Copyright@2023</h1>
     </div>

@@ -12,27 +12,28 @@ use Illuminate\Support\Facades\Session;
 class AuthController extends Controller
 {
     //
-    public function login(){
+    public function login()
+    {
         return view('login');
     }
 
     public function loginProcess(Request $request)
     {
         $request->validate([
-            'email'=>'required',
+            'email' => 'required',
             'password' => 'required',
         ]);
 
         $credentials = [
-            'email'=> $request->email,
-            'password'=> $request->password
+            'email' => $request->email,
+            'password' => $request->password
         ];
 
-        if($request->has('remember_me')){
-         Cookie::queue('whycookie', $request->email,120);
+        if ($request->has('remember_me')) {
+            Cookie::queue('whycookie', $request->email, 120);
         }
 
-        if(Auth::attempt($credentials, $request->has('remember_me'))){
+        if (Auth::attempt($credentials, $request->has('remember_me'))) {
             Session::put('mysession', $credentials);
             return redirect('/')->withSuccess('Succesfully loggedin');
         }
@@ -40,16 +41,18 @@ class AuthController extends Controller
         return redirect()->back()->withErrors('Invalid Username Or Password');
     }
 
-    public function register(){
+    public function register()
+    {
         return view('register');
     }
 
-    public function registerProcess(Request $req){
+    public function registerProcess(Request $req)
+    {
         $req->validate([
-            'username'=>'required|unique:users,username|min:4',
-            'email'=>'required|unique:users,email|email',
-            'password'=>'required|alpha_num|min:6|confirmed',
-            'role'=>'required'
+            'username' => 'required|unique:users,username|min:4',
+            'email' => 'required|unique:users,email|email',
+            'password' => 'required|alpha_num|min:6|confirmed',
+            'role' => 'required'
         ]);
 
         $user = new User();
@@ -59,10 +62,11 @@ class AuthController extends Controller
         $user->role = $req->role;
         $user->password = Hash::make($req->password);
         $user->save();
-        return redirect('/register')->with('alert','Register Success');
+        return redirect('/register')->with('alert', 'Register Success');
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect('login');
     }
