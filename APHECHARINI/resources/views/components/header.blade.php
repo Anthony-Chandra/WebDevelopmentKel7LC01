@@ -54,11 +54,16 @@
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
                                 <i class="bi bi-person-circle" style="font-size: 20px"></i></a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenu">
-                                <li><a class="dropdown-item" href="/profile/{{ Auth::id() }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="/profile">Profile</a></li>
                                 @lesse
                                     <li><a class="dropdown-item" href="/orders">Orders</a></li>
                                     <li><a class="dropdown-item" href="/history">History</a></li>
                                 @endlesse
+                                @lessor
+                                    <li><a class="dropdown-item" href="/history">Add Vehicle</a></li>
+                                    <li><a class="dropdown-item" href="/orders">Pending Orders</a></li>
+                                    <li><a class="dropdown-item" href="/history">History</a></li>
+                                @endlessor
                                 <li><a class="dropdown-item" href="/logout">Log out</a></li>
                             </ul>
                         </li>
