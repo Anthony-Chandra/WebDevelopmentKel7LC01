@@ -47,7 +47,7 @@
                         </li>
                     @endlessor
                     <li class="nav-item fs-5">
-                        <a class="nav-link" href="#myProject">Contact Us</a>
+                        <a class="nav-link" href="/contactUs">Contact Us</a>
                     </li>
                     @auth
                         <li class="nav-item dropdown">

@@ -7,8 +7,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\OwnedCarsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,8 @@ Route::get('/', function () {
     return redirect()->to('/home');
 });
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/contactUs', [HomeController::class, 'contactUs']);
+
 Route::get('/login', [AuthController::class,'login'])->middleware(['guest']);
 Route::post('/loginProcess', [AuthController::class,'loginProcess'])->middleware(['guest']);;
 Route::get('/register', [AuthController::class,'register'])->middleware(['guest']);
@@ -43,3 +47,5 @@ Route::post('/orderDetail/delete', [OrderDetailController::class, 'delete'])->mi
 
 Route::get('/ownedCars', [OwnedCarsController::class, 'index'])->middleware(['auth', 'lessor']);
 Route::post('/detail/editForm', [CarDetailController::class, 'editForm'])->middleware(['auth', 'lessor']);
+
+Route::get('/Profile/{user_id}', [ProfileController::class,'profile']);
