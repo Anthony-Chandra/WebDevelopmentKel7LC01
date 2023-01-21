@@ -44,4 +44,25 @@ class CarDetailController extends Controller
         }
         return redirect('/detail/' . $request->carID)->with('error', 'Date is overlapping with other order');
     }
+    public function editForm(Request $request){
+        $request->validate([
+            'carID' => 'required|integer',
+            'seats' => 'required|lt:10',
+            "status"=> 'required',
+            "desc" => 'required|min:5',
+            "price" => 'required'
+        ]);
+        $car = Car::find($request->carID);
+
+        if($car->car_owner == auth()->user()->user_id){
+            $car->seats = $request->seats;
+            $car->status = $request->status;
+            $car->description = $request->desc;
+            $car->price = $request->price;
+            $car->save();
+            return redirect('/detail/'.$request->carID)->with('success', 'Vehicle data has been updated');
+        }else{
+            return redirect('/detail/'.$request->carID)->with('error', 'The vehicle is not yours');
+        }
+    }
 }

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use Illuminate\Http\Request;
 
 class OwnedCarsController extends Controller
 {
     public function index()
     {
-        // $car = Car::where('car_id', $car_id)->first();
-        // return view('cardetail')->with('car', $car);
+        $cars = Car::where('car_owner', auth()->user()->user_id)->get();
+        return view('ownedcars')->with('cars', $cars);
     }
 }

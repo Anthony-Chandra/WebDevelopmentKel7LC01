@@ -26,83 +26,175 @@
         </a>
     </header>
     <div class="container">
-        <div class="modal fade" tabindex="-1" id="RentForm">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Renting Form</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form class="p-2" style="background-color: rgba(248,249,250,255);" action="/detail/rent"
-                            method="POST">
-                            @csrf
-                            @if (session()->has('error'))
-                                <div class="alert alert-danger">
-                                    {{ session()->get('error') }}
-                                </div>
-                            @endif
-                            @if (session()->has('success'))
-                                <div class="alert alert-success">
-                                    {{ session()->get('success') }}
-                                </div>
-                            @endif
-                            <input type="hidden" value="{{ $car->car_id }}" name="carID">
-                            <div class="mb-3">
-                                <label for="Name" class="form-label">Car Name:</label>
-                                <input type="text" class="form-control" value="{{ $car->car_name }}" disabled
-                                    readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="Price" class="form-label">Car Transmission:</label>
-                                <input type="text" class="form-control" value="{{ $car->transmission }}" disabled
-                                    readonly>
-                            </div>
-                            <div class="mb-3">
-                                <label for="Desc" class="form-label">Car Price:</label>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <input type="number" class="form-control" value="{{ $car->price }}" disabled
-                                            readonly>
+        @lesse
+            <div class="modal fade" tabindex="-1" id="RentForm">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Renting Form</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="p-2" style="background-color: rgba(248,249,250,255);" action="/detail/rent"
+                                method="POST">
+                                @csrf
+                                @if (session()->has('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session()->get('error') }}
                                     </div>
-                                    <div class="col-4 my-auto">
-                                        <h5 class="text-center">/ day</h5>
+                                @endif
+                                @if (session()->has('success'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('success') }}
+                                    </div>
+                                @endif
+                                <input type="hidden" value="{{ $car->car_id }}" name="carID">
+                                <div class="mb-3">
+                                    <label for="Name" class="form-label">Car Name:</label>
+                                    <input type="text" class="form-control" value="{{ $car->car_name }}" disabled
+                                        readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Price" class="form-label">Car Transmission:</label>
+                                    <input type="text" class="form-control" value="{{ $car->transmission }}" disabled
+                                        readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Desc" class="form-label">Car Price:</label>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <input type="number" class="form-control" value="{{ $car->price }}" disabled
+                                                readonly>
+                                        </div>
+                                        <div class="col-4 my-auto">
+                                            <h5 class="text-center">/ day</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="RentDate" class="form-label">Rent Start Date:</label>
-                                <input id="RentDate" class="form-control" type="date" name="startDate" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="RentDuration" class="form-label">Rent Duration:</label>
-                                <input id="RentDuration" class="form-control" type="number" onchange="changeTotal()"
-                                    name="duration" required>
-                            </div>
-                            <h1 class="h5">Total: Rp<span class="h5" id="totalPrice"></span></h1>
-                            <script>
-                                function changeTotal() {
-                                    var x = document.getElementById("RentDuration").value;
-                                    x = x * {{ $car->price }}
-                                    x = x.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
-                                    document.getElementById('totalPrice').innerHTML = x;
-                                }
-                            </script>
+                                <div class="mb-3">
+                                    <label for="RentDate" class="form-label">Rent Start Date:</label>
+                                    <input id="RentDate" class="form-control" type="date" name="startDate" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="RentDuration" class="form-label">Rent Duration:</label>
+                                    <input id="RentDuration" class="form-control" type="number" onchange="changeTotal()"
+                                        name="duration" required>
+                                </div>
+                                <h1 class="h5">Total: Rp<span class="h5" id="totalPrice"></span></h1>
+                                <script>
+                                    function changeTotal() {
+                                        var x = document.getElementById("RentDuration").value;
+                                        x = x * {{ $car->price }}
+                                        x = x.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+                                        document.getElementById('totalPrice').innerHTML = x;
+                                    }
+                                </script>
 
-                            @if ($errors->any())
-                                @foreach ($errors->all() as $error)
-                                    <div class="text-danger">{{ $error }}</div>
-                                @endforeach
-                            @endif
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Request Rent</button>
-                            </div>
-                        </form>
+                                @if ($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                        <div class="text-danger">{{ $error }}</div>
+                                    @endforeach
+                                @endif
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Request Rent</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            @if ($errors->any() || session()->has('success') || session()->has('error'))
+                <script>
+                    modal = new bootstrap.Modal('#RentForm');
+                    modal.show()
+                </script>
+            @endif
+        @endlesse
+        @lessor
+            <div class="modal fade" tabindex="-1" id="EditForm">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edit Vehicle Form</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="p-2" style="background-color: rgba(248,249,250,255);" action="/detail/editForm"
+                                method="POST">
+                                @csrf
+                                @if (session()->has('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session()->get('error') }}
+                                    </div>
+                                @endif
+                                @if (session()->has('success'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('success') }}
+                                    </div>
+                                @endif
+                                <input type="hidden" value="{{ $car->car_id }}" name="carID">
+                                <div class="mb-3">
+                                    <label for="Name" class="form-label">Car Name:</label>
+                                    <input type="text" class="form-control" value="{{ $car->car_name }}" disabled
+                                        readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Car Transmission:</label>
+                                    <input type="text" class="form-control" value="{{ $car->transmission }}" disabled
+                                        readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Seats Amount:</label>
+                                    <input type="text" class="form-control" value="{{ $car->seats }}"
+                                        name="seats">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Status" class="form-label">Vehicle Status:</label>
+                                    <select id="Status" class="form-select" name="status">
+                                        <option value="{{$car->status}}" selected hidden>{{$car->status}}</option>
+                                        <option value="Available">Available</option>
+                                        <option value="Maintenance">Maintenance</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Desc" class="form-label">Description:</label>
+                                    <textarea class="form-control" id="Desc" name="desc" rows="3" value="">{{$car->description}}</textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Price" class="form-label">Car Price:</label>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <input type="number" class="form-control" value="{{ $car->price }}"
+                                                name="price" id="Price">
+                                        </div>
+                                        <div class="col-4 my-auto">
+                                            <h5 class="text-center">/ day</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                @if ($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                        <div class="text-danger">{{ $error }}</div>
+                                    @endforeach
+                                @endif
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if ($errors->any() || session()->has('success') || session()->has('error'))
+                <script>
+                    modal = new bootstrap.Modal('#EditForm');
+                    modal.show()
+                </script>
+            @endif
+        @endlessor
         <div class="h-100 mx-5 d-flex flex-column align-items-center justify-content-center">
             <div class="row g-0">
                 <div class="col-md-6">
@@ -123,7 +215,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="text-center mx-1 my-1">
-                                        @if ($car->rent_status == 'Available')
+                                        @if ($car->status == 'Available')
                                             <i class="fa-solid fa-check-circle text-center"
                                                 style="font-size: 40px"></i>
                                         @else
@@ -132,7 +224,7 @@
                                         @endif
 
                                     </div>
-                                    <h1 class="h3 fw-light text-center">{{ $car->rent_status }}</h1>
+                                    <h1 class="h3 fw-light text-center">{{ $car->status }}</h1>
                                 </div>
                             </div>
                             <p class="card-text border-bottom border-2 pb-3 text-light">{{ $car->description }}</p>
@@ -141,23 +233,23 @@
                             <h5 class="h3 ms-5 text-light">{{ number_format($car->price, 0, ',', '.') }} / day</h5>
                     </div>
                 </div>
-                @if ($errors->any() || session()->has('success') || session()->has('error'))
-                    <script>
-                        modal = new bootstrap.Modal('#RentForm');
-                        modal.show()
-                    </script>
-                @endif
+
                 <div class="col-md-6">
                     <img src="{{ url('storage/Vehicle/' . $car->car_picture) }}" class="fluid my-2 p-3"
                         alt="...">
                     <div class="w-100 d-flex justify-content-center">
-                        @auth
+                        @lesse
                             <a class="btn btn-secondary btn-lg text-center" data-bs-toggle="modal"
                                 data-bs-target="#RentForm">Rent Now</a>
-                        @endauth
+                        @endlesse
                         @guest
                             <a href="/login" class="btn btn-secondary btn-lg text-center">Rent Now</a>
                         @endguest
+                        @lessor
+                            <a class="btn btn-primary btn-lg text-center" data-bs-toggle="modal"
+                                data-bs-target="#EditForm">Edit
+                                Vehicle</a>
+                        @endlessor
                     </div>
                 </div>
             </div>

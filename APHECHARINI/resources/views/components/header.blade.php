@@ -31,9 +31,21 @@
                     <li class="nav-item fs-5">
                         <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item fs-5">
-                        <a class="nav-link" href="/catalogue">Car Catalougue</a>
-                    </li>
+                    @guest
+                        <li class="nav-item fs-5">
+                            <a class="nav-link" href="/catalogue">Car Catalougue</a>
+                        </li>
+                    @endguest
+                    @lesse
+                        <li class="nav-item fs-5">
+                            <a class="nav-link" href="/catalogue">Car Catalougue</a>
+                        </li>
+                    @endlesse
+                    @lessor
+                        <li class="nav-item fs-5">
+                            <a class="nav-link" href="/ownedCars">Owned Cars</a>
+                        </li>
+                    @endlessor
                     <li class="nav-item fs-5">
                         <a class="nav-link" href="#myProject">Contact Us</a>
                     </li>

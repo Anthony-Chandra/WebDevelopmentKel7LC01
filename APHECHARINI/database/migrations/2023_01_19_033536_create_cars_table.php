@@ -22,7 +22,7 @@ class CreateCarsTable extends Migration
             $table->integer('price');
             $table->text('description');
             $table->string('car_picture');
-            $table->string('rent_status')->default('Available');
+            $table->string('status')->default('Available');
             $table->timestamps();
             $table->softDeletes();
         });

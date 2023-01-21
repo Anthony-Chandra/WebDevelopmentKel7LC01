@@ -28,10 +28,10 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/login', [AuthController::class,'login'])->middleware(['guest']);
 Route::post('/loginProcess', [AuthController::class,'loginProcess'])->middleware(['guest']);;
 Route::get('/register', [AuthController::class,'register'])->middleware(['guest']);
-Route::post('/registerProcess', [AuthController::class,'registerProcess'])->middleware(['guest']);;
+Route::post('/registerProcess', [AuthController::class,'registerProcess'])->middleware(['guest']);
 Route::get('/logout', [AuthController::class,'logout'])->middleware(['auth']);
 
-Route::get('/catalogue', [CatalogueController::class,'index']);
+Route::get('/catalogue', [CatalogueController::class,'index'])->middleware(['exceptLessor']);
 Route::get('/detail/{car_id}', [CarDetailController::class, 'index']);
 Route::post('/detail/rent', [CarDetailController::class, 'rent'])->middleware(['auth', 'lesse']);
 
@@ -42,4 +42,4 @@ Route::post('/orderDetail/update', [OrderDetailController::class, 'update'])->mi
 Route::post('/orderDetail/delete', [OrderDetailController::class, 'delete'])->middleware(['auth', 'lesse']);
 
 Route::get('/ownedCars', [OwnedCarsController::class, 'index'])->middleware(['auth', 'lessor']);
-
+Route::post('/detail/editForm', [CarDetailController::class, 'editForm'])->middleware(['auth', 'lessor']);

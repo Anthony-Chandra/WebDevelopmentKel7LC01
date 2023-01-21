@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CatalogueController extends Controller
 {
     public function index(){
-        $cars = Car::all();
+        $cars = Car::where('status', 'Available')->get();
         return view('catalogue')->with('cars', $cars);
     }
 }
