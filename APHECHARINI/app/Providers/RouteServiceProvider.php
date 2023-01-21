@@ -47,12 +47,24 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+<<<<<<< Updated upstream
         // Blade::if('admin', function () {
         //     return auth()->user()->role == "admin";
         // });
         // Blade::if('member', function () {
         //     return auth()->user()->role == "member";
         // });
+=======
+        Blade::if('lesse', function () {
+            return auth()->user()->role == "Lesse";
+        });
+        Blade::if('lessor', function () {
+            return auth()->user()->role == "Lessor";
+        });
+        Blade::if('admin', function () {
+            return auth()->user()->role == "Admin";
+        });
+>>>>>>> Stashed changes
     }
 
     /**
