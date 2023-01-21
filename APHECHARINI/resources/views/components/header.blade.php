@@ -33,17 +33,17 @@
                     </li>
                     @guest
                         <li class="nav-item fs-5">
-                            <a class="nav-link" href="/catalogue">Car Catalougue</a>
+                            <a class="nav-link" href="/catalogue">Vehicle Catalougue</a>
                         </li>
                     @endguest
                     @lesse
                         <li class="nav-item fs-5">
-                            <a class="nav-link" href="/catalogue">Car Catalougue</a>
+                            <a class="nav-link" href="/catalogue">Vehicle Catalougue</a>
                         </li>
                     @endlesse
                     @lessor
                         <li class="nav-item fs-5">
-                            <a class="nav-link" href="/ownedCars">Owned Cars</a>
+                            <a class="nav-link" href="/ownedCars">Owned Vehicle</a>
                         </li>
                     @endlessor
                     <li class="nav-item fs-5">
@@ -57,12 +57,12 @@
                                 <li><a class="dropdown-item" href="/profile">Profile</a></li>
                                 @lesse
                                     <li><a class="dropdown-item" href="/orders">Orders</a></li>
-                                    <li><a class="dropdown-item" href="/history">History</a></li>
+                                    <li><a class="dropdown-item" href="/history/lesse">History</a></li>
                                 @endlesse
                                 @lessor
                                     <li><a class="dropdown-item" href="/history">Add Vehicle</a></li>
                                     <li><a class="dropdown-item" href="/pendingOrder">Pending Orders</a></li>
-                                    <li><a class="dropdown-item" href="/history">History</a></li>
+                                    <li><a class="dropdown-item" href="/history/lessor">History</a></li>
                                 @endlessor
                                 <li><a class="dropdown-item" href="/logout">Log out</a></li>
                             </ul>

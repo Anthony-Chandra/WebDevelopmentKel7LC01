@@ -50,17 +50,17 @@
                                 @endif
                                 <input type="hidden" value="{{ $car->car_id }}" name="carID">
                                 <div class="mb-3">
-                                    <label for="Name" class="form-label">Car Name:</label>
+                                    <label for="Name" class="form-label">Vehicle Name:</label>
                                     <input type="text" class="form-control" value="{{ $car->car_name }}" disabled
                                         readonly>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Price" class="form-label">Car Transmission:</label>
+                                    <label for="Price" class="form-label">Vehicle Transmission:</label>
                                     <input type="text" class="form-control" value="{{ $car->transmission }}" disabled
                                         readonly>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Desc" class="form-label">Car Price:</label>
+                                    <label for="Desc" class="form-label">Vehicle Price:</label>
                                     <div class="row">
                                         <div class="col-8">
                                             <input type="number" class="form-control" value="{{ $car->price }}" disabled
@@ -135,12 +135,12 @@
                                 @endif
                                 <input type="hidden" value="{{ $car->car_id }}" name="carID">
                                 <div class="mb-3">
-                                    <label for="Name" class="form-label">Car Name:</label>
+                                    <label for="Name" class="form-label">Vehicle Name:</label>
                                     <input type="text" class="form-control" value="{{ $car->car_name }}" disabled
                                         readonly>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Car Transmission:</label>
+                                    <label class="form-label">Vehicle Transmission:</label>
                                     <input type="text" class="form-control" value="{{ $car->transmission }}" disabled
                                         readonly>
                                 </div>
