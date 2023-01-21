@@ -26,7 +26,7 @@ class OrderSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'car_id' => 1,
+                'car_id' => 3,
                 'user_id' => 2,
                 'start_rent_date' => date('Y-m-d', strtotime(Carbon::now()->format('Y-m-d H:i:s') . ' + 7 days')),
                 'end_rent_date' => date('Y-m-d', strtotime(Carbon::now()->format('Y-m-d H:i:s') . ' + 8 days')),

@@ -61,7 +61,7 @@
                                 @endlesse
                                 @lessor
                                     <li><a class="dropdown-item" href="/history">Add Vehicle</a></li>
-                                    <li><a class="dropdown-item" href="/orders">Pending Orders</a></li>
+                                    <li><a class="dropdown-item" href="/pendingOrder">Pending Orders</a></li>
                                     <li><a class="dropdown-item" href="/history">History</a></li>
                                 @endlessor
                                 <li><a class="dropdown-item" href="/logout">Log out</a></li>
