@@ -30,10 +30,9 @@ Route::post('/loginProcess', [AuthController::class,'loginProcess'])->middleware
 Route::get('/register', [AuthController::class,'register'])->middleware(['guest']);
 Route::post('/registerProcess', [AuthController::class,'registerProcess'])->middleware(['guest']);;
 Route::get('/logout', [AuthController::class,'logout'])->middleware(['auth']);
-Route::get('/catalogue', [CatalogueController::class,'index'])->middleware(['guest', 'auth', 'lesse']);
 
-
-Route::get('/detail/{car_id}', [CarDetailController::class, 'index'])->middleware(['guest', 'auth', 'lesse']);;
+Route::get('/catalogue', [CatalogueController::class,'index']);
+Route::get('/detail/{car_id}', [CarDetailController::class, 'index']);
 Route::post('/detail/rent', [CarDetailController::class, 'rent'])->middleware(['auth', 'lesse']);
 
 Route::get('/orders', [OrderController::class, 'index'])->middleware(['auth', 'lesse']);

@@ -24,28 +24,18 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fs-3" href="#"><img src="{{ asset('storage/assets/logo.png') }}"
-                    width="220px" alt=""></a>
+            <a class="navbar-brand fs-3" href="#"><img src="{{ asset('storage/assets/logo.png') }}" width="220px"
+                    alt=""></a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item fs-5">
                         <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
-                    @lesse
-                        <li class="nav-item fs-5">
-                            <a class="nav-link" href="/catalogue">Car Catalougue</a>
-                        </li>
-                    @endlesse
-                    @lessor
-                        <li class="nav-item fs-5">
-                            <a class="nav-link" href="/ownedCars">Owned Cars</a>
-                        </li>
-                    @endlessor
                     <li class="nav-item fs-5">
-                        <a class="nav-link" href="#myProject">Contact Us</a>
+                        <a class="nav-link" href="/catalogue">Car Catalougue</a>
                     </li>
                     <li class="nav-item fs-5">
-                        <a class="nav-link" href="">Help</a>
+                        <a class="nav-link" href="#myProject">Contact Us</a>
                     </li>
                     @auth
                         <li class="nav-item dropdown">
@@ -53,6 +43,10 @@
                                 <i class="bi bi-person-circle" style="font-size: 20px"></i></a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenu">
                                 <li><a class="dropdown-item" href="/profile/{{ Auth::id() }}">Profile</a></li>
+                                @lesse
+                                    <li><a class="dropdown-item" href="/orders">Orders</a></li>
+                                    <li><a class="dropdown-item" href="/history">History</a></li>
+                                @endlesse
                                 <li><a class="dropdown-item" href="/logout">Log out</a></li>
                             </ul>
                         </li>

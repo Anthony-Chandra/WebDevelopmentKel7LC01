@@ -49,12 +49,21 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
         Blade::if('lesse', function () {
+            if(!auth()->check()){
+                return false;
+            }
             return auth()->user()->role == "Lesse";
         });
         Blade::if('lessor', function () {
+            if (!auth()->check()) {
+                return false;
+            }
             return auth()->user()->role == "Lessor";
         });
         Blade::if('admin', function () {
+            if (!auth()->check()) {
+                return false;
+            }
             return auth()->user()->role == "Admin";
         });
     }
