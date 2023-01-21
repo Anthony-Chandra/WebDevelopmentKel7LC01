@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
@@ -47,14 +48,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
-<<<<<<< Updated upstream
-        // Blade::if('admin', function () {
-        //     return auth()->user()->role == "admin";
-        // });
-        // Blade::if('member', function () {
-        //     return auth()->user()->role == "member";
-        // });
-=======
         Blade::if('lesse', function () {
             return auth()->user()->role == "Lesse";
         });
@@ -64,7 +57,6 @@ class RouteServiceProvider extends ServiceProvider
         Blade::if('admin', function () {
             return auth()->user()->role == "Admin";
         });
->>>>>>> Stashed changes
     }
 
     /**

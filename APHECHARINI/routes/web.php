@@ -4,13 +4,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarDetailController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\HomeController;
-<<<<<<< Updated upstream
-=======
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\OwnedCarsController;
 use App\Http\Controllers\RentController;
->>>>>>> Stashed changes
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,9 +32,7 @@ Route::post('/registerProcess', [AuthController::class,'registerProcess'])->midd
 Route::get('/logout', [AuthController::class,'logout'])->middleware(['auth']);
 Route::get('/catalogue', [CatalogueController::class,'index'])->middleware(['guest', 'auth', 'lesse']);
 
-<<<<<<< Updated upstream
-Route::get('/detail/{car_id}', [CarDetailController::class, 'index']);
-=======
+
 Route::get('/detail/{car_id}', [CarDetailController::class, 'index'])->middleware(['guest', 'auth', 'lesse']);;
 Route::post('/detail/rent', [CarDetailController::class, 'rent'])->middleware(['auth', 'lesse']);
 
@@ -49,4 +44,3 @@ Route::post('/orderDetail/delete', [OrderDetailController::class, 'delete'])->mi
 
 Route::get('/ownedCars', [OwnedCarsController::class, 'index'])->middleware(['auth', 'lessor']);
 
->>>>>>> Stashed changes

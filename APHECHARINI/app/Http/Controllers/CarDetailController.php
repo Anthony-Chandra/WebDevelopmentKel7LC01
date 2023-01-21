@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class CarDetailController extends Controller
 {
@@ -11,8 +13,6 @@ class CarDetailController extends Controller
         $car = Car::where('car_id', $car_id)->first();
         return view('cardetail')->with('car', $car);
     }
-<<<<<<< Updated upstream
-=======
     public function rent(Request $request){
         $mytime = Carbon::now()->toDateString();
         $request->validate([
@@ -44,5 +44,4 @@ class CarDetailController extends Controller
         }
         return redirect('/detail/' . $request->carID)->with('error', 'Date is overlapping with other order');
     }
->>>>>>> Stashed changes
 }

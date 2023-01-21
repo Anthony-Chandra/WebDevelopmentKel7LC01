@@ -19,8 +19,6 @@ class CarsSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        Car::truncate();
-        $faker = Faker::create();
         DB::table('cars')->insert([
             [
                 'car_name' => 'Pajero Sport 2016',
