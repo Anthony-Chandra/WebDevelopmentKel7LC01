@@ -44,7 +44,7 @@ class CarsSeeder extends Seeder
             ],
             [
                 'car_name' => 'Avanza 2016',
-                'car_owner' => 3,
+                'car_owner' => 4,
                 'seats' => 8,
                 'transmission' => 'Automatic',
                 'price' => 100000,

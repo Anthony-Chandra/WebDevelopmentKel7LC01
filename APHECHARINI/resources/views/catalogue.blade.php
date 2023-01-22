@@ -4,7 +4,7 @@
     <body class="d-flex flex-column min-vh-100">
         <div class="container mt-5 pt-5">
             <header class="">
-                <h1 class="display-6 mt-5 text-center fw-normal">Car Catalogue</h1>
+                <h1 class="display-6 mt-5 text-center fw-normal">Vehicle Catalogue</h1>
 
             </header>
             <div class="d-flex flex-wrap justify-content-center">

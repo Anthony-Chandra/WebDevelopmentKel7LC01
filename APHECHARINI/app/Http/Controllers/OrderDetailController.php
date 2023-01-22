@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\History;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -25,12 +26,21 @@ class OrderDetailController extends Controller
         ]);
         $end_date = date('Y-m-d', strtotime($request->startDate . ' + ' . $request->duration . ' days'));
         $start_date = $request->startDate;
+        $history = History::whereBetween('start_rent_date', [$start_date, $end_date])
+        ->orWhereBetween('end_rent_date', [$start_date, $end_date])
+        ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$start_date])
+        ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$end_date])->pluck('history_id');
+        $history = History::where('car_id', $request->carID)
+        ->whereIn('history_id', $history)->first();
+
         $order = Order::whereBetween('start_rent_date', [$start_date, $end_date])
-            ->orWhereBetween('end_rent_date', [$start_date, $end_date])
-            ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$start_date])
-            ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$end_date])->get();
-        $order = $order->whereNotIn('order_id', [$request->orderID])->first();
-        if (!$order) {
+        ->orWhereBetween('end_rent_date', [$start_date, $end_date])
+        ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$start_date])
+        ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$end_date])->pluck('order_id');
+        $order = Order::where('car_id', $request->carID)
+        ->whereIn('order_id', $order)->first();
+
+        if (!$order && !$history) {
             $order = Order::find($request->orderID);
             $total_price = $request->duration * $order->car->price;
             $order->start_rent_date = $start_date;
