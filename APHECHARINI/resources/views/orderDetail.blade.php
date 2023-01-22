@@ -72,7 +72,7 @@
                             <div class="mb-3">
                                 <label for="RentDuration" class="form-label">Rent Duration:</label>
                                 <input id="RentDuration" class="form-control" type="number" onchange="changeTotal()"
-                                    name="duration" required value="{{$order->duration}}">
+                                    name="duration" required value="{{ $order->duration }}">
                             </div>
                             <h1 class="h5">Total: Rp<span class="h5"
                                     id="totalPrice">{{ number_format($order->total_price, 0, ',', '.') }}</span></h1>

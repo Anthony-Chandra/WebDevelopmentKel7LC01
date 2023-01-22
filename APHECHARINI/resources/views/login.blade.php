@@ -23,11 +23,21 @@
                             @csrf
                             <div class="form-outline mb-4">
                                 <input type="email" id="form1Example1" class="form-control" placeholder="Email"
-                                    name="email" />
+                                    name="email"
+                                    value='{{ Cookie::get('myCookie') !== null ? Cookie::get('myCookie') : '' }}' />
                             </div>
                             <div class="form-outline mb-4">
                                 <input type="password" id="form1Example2" class="form-control" placeholder="Password"
                                     name="password" />
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input {{ Cookie::get('myCookie') !== null ? 'checked' : '' }} class="form-check-input"
+                                        type="checkbox" value="" id="remember" name="remember_me">
+                                    <label class="form-check-label text-white" for="flexCheckDefault">
+                                        Remember me
+                                    </label>
+                                </div>
                             </div>
                             <div class="col-md-12 my-1">
                                 <button type="submit" class="btn btn-light mt-4">Sign in</button>

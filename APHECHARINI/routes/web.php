@@ -49,3 +49,4 @@ Route::get('/ownedCars', [OwnedCarsController::class, 'index'])->middleware(['au
 Route::post('/detail/editForm', [CarDetailController::class, 'editForm'])->middleware(['auth', 'lessor']);
 
 Route::get('/profile/{userId}', [ProfileController::class,'profile']);
+Route::post('/editProfile/{userId}', [ProfileController::class,'editProfile']);

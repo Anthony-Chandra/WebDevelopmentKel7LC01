@@ -30,7 +30,7 @@ class AuthController extends Controller
         ];
 
         if ($request->has('remember_me')) {
-            Cookie::queue('whycookie', $request->email, 120);
+            Cookie::queue('myCookie', $request->email, 1);
         }
 
         if (Auth::attempt($credentials, $request->has('remember_me'))) {

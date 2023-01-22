@@ -120,8 +120,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="p-2" style="background-color: rgba(248,249,250,255);" action="/detail/editForm"
-                                method="POST">
+                            <form class="p-2" style="background-color: rgba(248,249,250,255);"
+                                action="/detail/editForm" method="POST">
                                 @csrf
                                 @if (session()->has('error'))
                                     <div class="alert alert-danger">
@@ -152,14 +152,14 @@
                                 <div class="mb-3">
                                     <label for="Status" class="form-label">Vehicle Status:</label>
                                     <select id="Status" class="form-select" name="status">
-                                        <option value="{{$car->status}}" selected hidden>{{$car->status}}</option>
+                                        <option value="{{ $car->status }}" selected hidden>{{ $car->status }}</option>
                                         <option value="Available">Available</option>
                                         <option value="Maintenance">Maintenance</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="Desc" class="form-label">Description:</label>
-                                    <textarea class="form-control" id="Desc" name="desc" rows="3" value="">{{$car->description}}</textarea>
+                                    <textarea class="form-control" id="Desc" name="desc" rows="3" value="">{{ $car->description }}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="Price" class="form-label">Car Price:</label>
