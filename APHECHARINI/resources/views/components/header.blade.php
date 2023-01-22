@@ -47,14 +47,14 @@
                         </li>
                     @endlessor
                     <li class="nav-item fs-5">
-                        <a class="nav-link" href="#myProject">Contact Us</a>
+                        <a class="nav-link" href="/contactUs">Contact Us</a>
                     </li>
                     @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
                                 <i class="bi bi-person-circle" style="font-size: 20px"></i></a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenu">
-                                <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                <li><a class="dropdown-item" href="/profile/{{ Auth::id() }}">Profile</a></li>
                                 @lesse
                                     <li><a class="dropdown-item" href="/orders">Orders</a></li>
                                     <li><a class="dropdown-item" href="/history/lesse">History</a></li>
