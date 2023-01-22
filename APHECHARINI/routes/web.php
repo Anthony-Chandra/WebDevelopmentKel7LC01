@@ -48,4 +48,4 @@ Route::post('/orderDetail/delete', [OrderDetailController::class, 'delete'])->mi
 Route::get('/ownedCars', [OwnedCarsController::class, 'index'])->middleware(['auth', 'lessor']);
 Route::post('/detail/editForm', [CarDetailController::class, 'editForm'])->middleware(['auth', 'lessor']);
 
-Route::get('/Profile/{user_id}', [ProfileController::class,'profile']);
+Route::get('/profile/{userId}', [ProfileController::class,'profile']);
