@@ -38,7 +38,7 @@ class AuthController extends Controller
             return redirect('/')->withSuccess('Succesfully loggedin');
         }
 
-        return redirect()->back()->withErrors('Invalid Username Or Password');
+        return redirect('/login')->withErrors('Invalid Username Or Password');
     }
 
     public function register()

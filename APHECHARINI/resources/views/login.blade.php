@@ -32,8 +32,8 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input {{ Cookie::get('myCookie') !== null ? 'checked' : '' }} class="form-check-input"
-                                        type="checkbox" value="" id="remember" name="remember_me">
+                                    <input class="form-check-input" type="checkbox" value="" id="remember"
+                                        name="remember_me">
                                     <label class="form-check-label text-white" for="flexCheckDefault">
                                         Remember me
                                     </label>
