@@ -50,6 +50,8 @@ Route::post('/orderDetail/delete', [OrderDetailController::class, 'delete'])->mi
 
 Route::get('/ownedCars', [OwnedCarsController::class, 'index'])->middleware(['auth', 'lessor']);
 Route::post('/detail/editForm', [CarDetailController::class, 'editForm'])->middleware(['auth', 'lessor']);
+Route::get('/addVehicle',[OwnedCarsController::class,'addVehicle'])->middleware(['auth','lessor']);
+Route::post('/doAddVehicle',[OwnedCarsController::class,'doAddVehicle'])->middleware(['auth','lessor']);
 
 
 Route::get('/profile', [ProfileController::class,'profile'])->middleware(['auth']);
@@ -63,3 +65,4 @@ Route::post('/pendingOrder/decline', [PendingOrderController::class, 'decline'])
 Route::get('/history/lessor', [HistoryController::class, 'lessorHistory'])->middleware(['auth', 'lessor']);
 Route::get('/history/lesse', [HistoryController::class, 'lesseHistory'])->middleware(['auth', 'lesse']);
 Route::get('/historyDetail/{history_id}', [HistoryController::class, 'historyDetail'])->middleware(['auth']);
+

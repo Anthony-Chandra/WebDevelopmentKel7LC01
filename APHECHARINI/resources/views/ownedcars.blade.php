@@ -1,6 +1,7 @@
 @extends('components.header')
 @section('title', 'Catalogue')
 @section('content')
+
     <body class="d-flex flex-column min-vh-100">
         <div class="container mt-5 pt-5">
             <header class="">
@@ -9,7 +10,7 @@
             </header>
             <div class="d-flex flex-wrap justify-content-center">
                 @foreach ($cars as $car)
-                    <a href="/detail/{{$car->car_id}}" class="text-dark">
+                    <a href="/detail/{{ $car->car_id }}" class="text-dark">
                         <div class="card h-100 m-3" style="width: 24rem;">
                             <div class="ms-4 mt-2 mb-2">
                                 <h4 class="h3">{{ $car->car_name }}</h4>
