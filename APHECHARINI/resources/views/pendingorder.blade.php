@@ -19,7 +19,7 @@
             </header>
             <div class="d-flex flex-wrap justify-content-center">
                 @foreach ($orders as $order)
-                    <a href="/orderDetail/{{ $order->order_id }}" class="text-dark">
+                    <a href="/orderDetail/{{ $order->order_id }}" class="text-dark my-3">
                         <div class="card h-100 m-3" style="width: 24rem;">
                             <div class="ms-4 mt-2 mb-2">
                                 <h4 class="h3">{{ $order->car->car_name }}</h4>

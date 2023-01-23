@@ -22,10 +22,10 @@ class OwnedCarsController extends Controller
             $req->validate([
             'car_name'=>'required|min:3',
             'transmission'=>'required',
-            'seat'=>'required',
+            'seat'=>'required|lt:10',
             'status'=>'required',
-            'description'=>'required|min:8',
-            'price'=>'required',
+            'description'=>'required|min:5',
+            'price'=>'required|numeric',
             'car_image' =>'required|mimes:jpg,jpeg,png,gif'
         ]);
 
@@ -35,7 +35,7 @@ class OwnedCarsController extends Controller
 
         $vehicle = new Car();
         $vehicle->car_picture = $imageName;
-        $vehicle->car_owner = $req->car_owner;
+        $vehicle->car_owner = auth()->user()->user_id;
         $vehicle->car_name = $req->car_name;
         $vehicle->transmission = $req->transmission;
         $vehicle->seats = $req->seat;

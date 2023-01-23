@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class HistoryController extends Controller
 {
     public function lessorHistory(){
-        $cars = Car::where('car_owner', auth()->user()->user_id)->pluck('car_id');
+        $cars = Car::where('car_owner', auth()->user()->user_id)->withTrashed()->pluck('car_id');
         $histories = History::whereIn('car_id', $cars)->get();
         return view('history')->with('histories', $histories);
     }

@@ -60,7 +60,7 @@ class CarDetailController extends Controller
             'seats' => 'required|lt:10',
             "status"=> 'required',
             "desc" => 'required|min:5',
-            "price" => 'required'
+            "price" => 'required|numeric'
         ]);
         $car = Car::find($request->carID);
         $order = Order::where('car_id', $request->carID)->first();
@@ -76,6 +76,23 @@ class CarDetailController extends Controller
             return redirect('/detail/'.$request->carID)->with('success', 'Vehicle data has been updated');
         }else{
             return redirect('/detail/'.$request->carID)->with('error', 'The vehicle is not yours');
+        }
+    }
+    public function deleteVehicle(Request $request)
+    {
+        $request->validate([
+            'carID' => 'required|integer',
+        ]);
+        $car = Car::find($request->carID);
+        $order = Order::where('car_id', $request->carID)->first();
+        if ($car->car_owner == auth()->user()->user_id) {
+            if ($order) {
+                return redirect('/detail/' . $request->carID)->with('deleteError', 'Please make sure Orders on vehicle is empty');
+            };
+            $car->delete();
+            return redirect('/ownedCars');
+        } else {
+            return redirect('/detail/' . $request->carID)->with('deleteError', 'The vehicle is not yours');
         }
     }
 }

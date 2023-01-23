@@ -15,7 +15,6 @@
             <form method="POST" action="/doAddVehicle" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <input type="hidden" name="car_owner" value="{{ Auth::id() }}">
                     <div class="col-md-12">
                         Vehicle Name:
                         <div class="form-outline mb-4">
@@ -24,8 +23,16 @@
                         </div>
                         Vehicle Transmission:
                         <div class="form-outline mb-4">
-                            <input type="text" id="form1Example1" class="form-control" name="transmission"
-                                value="{{ old('transmission') }}" />
+                            <div class="form-group">
+                                <select class="form-control text-dark" name="transmission" id="Transmission">
+                                    <option value="" selected disabled hidden>--Open this select menu--</option>
+                                    <option value="Automatic" @if (old('status') == 'Automatic') {{ 'selected' }} @endif>
+                                        Automatic</option>
+                                    <option value="Manual"
+                                        @if (old('status') == 'Manual') {{ 'selected' }} @endif>
+                                        Manual</option>
+                                </select>
+                            </div>
                         </div>
                         Seat Ammount:
                         <div class="form-outline mb-4">
@@ -36,7 +43,7 @@
                         <div class="form-outline mb-4">
                             <div class="form-group">
                                 <select class="form-control text-dark" name="status" id="exampleFormControlSelect1">
-                                    <option value="">--Open this select menu--</option>
+                                    <option value="" selected disabled hidden>--Open this select menu--</option>
                                     <option value="Available" @if (old('status') == 'Available') {{ 'selected' }} @endif>
                                         Available</option>
                                     <option value="Maintenance"

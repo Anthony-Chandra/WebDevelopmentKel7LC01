@@ -248,6 +248,17 @@
                             <a href="/login" class="btn btn-secondary btn-lg text-center">Rent Now</a>
                         @endguest
                         @lessor
+                            @if (session()->has('deleteError'))
+                                <script>
+                                    alert("{{ session()->get('deleteError') }}");
+                                </script>
+                            @endif
+                            <form action="/detail/deleteVehicle" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{ $car->car_id }}" name="carID">
+                                <button class="btn btn-danger btn-lg text-center me-4" type="submit">Remove
+                                    Vehicle</button>
+                            </form>
                             <a class="btn btn-primary btn-lg text-center" data-bs-toggle="modal"
                                 data-bs-target="#EditForm">Edit
                                 Vehicle</a>
