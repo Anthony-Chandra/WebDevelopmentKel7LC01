@@ -30,6 +30,7 @@ Route::get('/', function () {
 });
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/contactUs', [HomeController::class, 'contactUs']);
+Route::post('/searching', [CatalogueController::class, 'searching']);
 
 Route::get('/login', [AuthController::class,'login'])->middleware(['guest']);
 Route::post('/loginProcess', [AuthController::class,'loginProcess'])->middleware(['guest']);;
