@@ -12,17 +12,16 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="image-upload">
-                                <label>
-                                    @if ($profile->imageUrl == '-')
-                                        <i class="bi bi-person-circle" style="font-size: 160px"></i>
-                                    @else
-                                        <img src="{{ url('storage/assets/' . $profile->imageUrl) }}" alt="">
-                                    @endif
-                                    {{-- <i class="bi bi-person-circle" style="font-size: 160px"></i> --}}
-                                    <input type="file" name="imgUrl" style="display:none">
-                                </label>
-                            </div>
+                            <label>
+                                @if ($profile->imageUrl == '-')
+                                    <i class="bi bi-person-circle" style="font-size: 160px"></i>
+                                @else
+                                    <img class=" photo-sizing" src="{{ url('storage/assets/' . $profile->imageUrl) }}"
+                                        alt="">
+                                @endif
+                                {{-- <i class="bi bi-person-circle" style="font-size: 160px"></i> --}}
+                                <input type="file" name="imgUrl" style="display:none">
+                            </label>
                         </div>
 
                         <div class="col-md-9">
@@ -33,7 +32,7 @@
                             </div>
                             Email:
                             <div class="form-outline mb-4">
-                                <input type="text" id="form1Example1" class="form-control" placeholder="Email"
+                                <input type="email" id="form1Example1" class="form-control" placeholder="Email"
                                     name="email" value="{{ $profile->email }}" />
                             </div>
                             Phone:

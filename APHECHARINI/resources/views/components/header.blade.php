@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ asset('style.css') }}" />
     <script src="https://kit.fontawesome.com/0b65baf2e5.js" crossorigin="anonymous"></script>
     <title>@yield('title')</title>
     <style>
@@ -60,7 +60,7 @@
                                     <li><a class="dropdown-item" href="/history/lesse">History</a></li>
                                 @endlesse
                                 @lessor
-                                    <li><a class="dropdown-item" href="/history">Add Vehicle</a></li>
+                                    <li><a class="dropdown-item" href="/addVehicle">Add Vehicle</a></li>
                                     <li><a class="dropdown-item" href="/pendingOrder">Pending Orders</a></li>
                                     <li><a class="dropdown-item" href="/history/lessor">History</a></li>
                                 @endlessor
