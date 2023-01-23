@@ -36,7 +36,7 @@ class CarDetailController extends Controller
         ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$end_date])->pluck('order_id');
         $order = Order::where('car_id', $request->carID)
         ->whereIn('order_id', $order)->first();
-        
+
         if(!$order && !$history){
             $car = Car::find($request->carID);
             $user_id = auth()->user()->user_id;
@@ -63,8 +63,11 @@ class CarDetailController extends Controller
             "price" => 'required'
         ]);
         $car = Car::find($request->carID);
-
+        $order = Order::where('car_id', $request->carID)->first();
         if($car->car_owner == auth()->user()->user_id){
+            if($order){
+                return redirect('/detail/' . $request->carID)->with('error', 'Please make sure Orders on vehicle is empty');
+            };
             $car->seats = $request->seats;
             $car->status = $request->status;
             $car->description = $request->desc;

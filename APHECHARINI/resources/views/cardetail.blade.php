@@ -89,7 +89,6 @@
                                         document.getElementById('totalPrice').innerHTML = x;
                                     }
                                 </script>
-
                                 @if ($errors->any())
                                     @foreach ($errors->all() as $error)
                                         <div class="text-danger">{{ $error }}</div>
@@ -199,38 +198,41 @@
             <div class="row g-0">
                 <div class="col-md-6">
                     <div class="card-body">
-                        <h1 class="card-title display-4 fw-normal mb-3 text-light">{{ $car->car_name }}</h3>
-                            <div class="row text-light mb-4">
-                                <div class="col-md-4">
-                                    <div class="text-center mx-1 my-1"><i class="fa-solid fa-gears"
-                                            style="font-size: 40px"></i>
-                                    </div>
-                                    <h1 class="h3 fw-light text-center">{{ $car->transmission }}</h1>
+                        <h1 class="card-title display-4 fw-normal mb-1 text-light">{{ $car->car_name }}</h1>
+                        <div class="d-flex mb-3 text-light justify-content-between">
+                            <h1 class="card-title h5 fw-light">Owned by {{ $car->user->username }}</h1>
+                            <h1 class="card-title h5 fw-light"><span><i class="fas fa-phone"></i></span>
+                                {{ $car->user->phone }}</h1>
+                        </div>
+                        <div class="row text-light mb-4">
+                            <div class="col-md-4">
+                                <div class="text-center mx-1 my-1"><i class="fa-solid fa-gears"
+                                        style="font-size: 40px"></i>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="text-center mx-1 my-1"><i class="fa-solid fa-male text-center"
-                                            style="font-size: 40px"></i>
-                                    </div>
-                                    <h1 class="h3 fw-light text-center">{{ $car->seats }} Seats</h1>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="text-center mx-1 my-1">
-                                        @if ($car->status == 'Available')
-                                            <i class="fa-solid fa-check-circle text-center"
-                                                style="font-size: 40px"></i>
-                                        @else
-                                            <i class="fa-solid fa-times-circle text-center"
-                                                style="font-size: 40px"></i>
-                                        @endif
-
-                                    </div>
-                                    <h1 class="h3 fw-light text-center">{{ $car->status }}</h1>
-                                </div>
+                                <h1 class="h3 fw-light text-center">{{ $car->transmission }}</h1>
                             </div>
-                            <p class="card-text border-bottom border-2 pb-3 text-light">{{ $car->description }}</p>
-                            <h1 class="h5 text-secondary">Price</h1>
-                            <h5 class="h4 text-light">Rp</h5>
-                            <h5 class="h3 ms-5 text-light">{{ number_format($car->price, 0, ',', '.') }} / day</h5>
+                            <div class="col-md-4">
+                                <div class="text-center mx-1 my-1"><i class="fa-solid fa-male text-center"
+                                        style="font-size: 40px"></i>
+                                </div>
+                                <h1 class="h3 fw-light text-center">{{ $car->seats }} Seats</h1>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center mx-1 my-1">
+                                    @if ($car->status == 'Available')
+                                        <i class="fa-solid fa-check-circle text-center" style="font-size: 40px"></i>
+                                    @else
+                                        <i class="fa-solid fa-times-circle text-center" style="font-size: 40px"></i>
+                                    @endif
+
+                                </div>
+                                <h1 class="h3 fw-light text-center">{{ $car->status }}</h1>
+                            </div>
+                        </div>
+                        <p class="card-text border-bottom border-2 pb-3 text-light">{{ $car->description }}</p>
+                        <h1 class="h5 text-secondary">Price</h1>
+                        <h5 class="h4 text-light">Rp</h5>
+                        <h5 class="h3 ms-5 text-light">{{ number_format($car->price, 0, ',', '.') }} / day</h5>
                     </div>
                 </div>
 

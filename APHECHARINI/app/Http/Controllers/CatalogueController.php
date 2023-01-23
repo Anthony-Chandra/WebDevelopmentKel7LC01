@@ -11,4 +11,9 @@ class CatalogueController extends Controller
         $cars = Car::where('status', 'Available')->get();
         return view('catalogue')->with('cars', $cars);
     }
+    public function searching(Request $request){
+        $cars = Car::where('car_name', 'LIKE', '%'.$request->searchBar.'%')
+        ->where('status', 'Available')->get();
+        return view('catalogue')->with('cars', $cars);
+    }
 }

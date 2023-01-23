@@ -50,9 +50,10 @@ class AuthController extends Controller
     {
         $req->validate([
             'username' => 'required|unique:users,username|min:4',
-            'email' => 'required|unique:users,email|email',
-            'password' => 'required|alpha_num|min:6|confirmed',
-            'role' => 'required'
+            'email' => 'required|unique:users,email|email:dns',
+            'password' => 'required|min:6|confirmed',
+            'role' => 'required',
+            'phone' => 'required|numeric|min:8'
         ]);
 
         $user = new User();
