@@ -51,8 +51,9 @@ Route::get('/ownedCars', [OwnedCarsController::class, 'index'])->middleware(['au
 Route::post('/detail/editForm', [CarDetailController::class, 'editForm'])->middleware(['auth', 'lessor']);
 
 
-Route::get('/profile/{userId}', [ProfileController::class,'profile']);
-Route::post('/editProfile/{userId}', [ProfileController::class,'editProfile']);
+Route::get('/profile', [ProfileController::class,'profile'])->middleware(['auth']);
+Route::post('/editProfile', [ProfileController::class,'editProfile'])->middleware(['auth']);
+Route::post('/changePassword', [ProfileController::class, 'changePassword'])->middleware(['auth']);
 
 Route::get('/pendingOrder', [PendingOrderController::class, 'index'])->middleware(['auth', 'lessor']);
 Route::post('/pendingOrder/accept', [PendingOrderController::class, 'accept'])->middleware(['auth', 'lessor']);
