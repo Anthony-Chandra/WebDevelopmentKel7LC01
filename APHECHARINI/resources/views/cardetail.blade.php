@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/0b65baf2e5.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="d-flex flex-column min-vh-100 bg-dark">
+<body class="bg-dark" style="display: flex; min-height: 100vh; flex-direction: column; justify-content: space-between;">
     <header class="mx-5 my-5" style="width: 2%">
         <a class="mx-5 my-5" href="/catalogue">
             <svg xmlns="http://www.w3.org/2000/svg" class="fluid" fill="white" class="bi bi-caret-left-fill"

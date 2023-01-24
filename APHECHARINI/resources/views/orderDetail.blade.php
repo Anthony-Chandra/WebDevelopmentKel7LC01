@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Car Detail</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <script src="https://kit.fontawesome.com/0b65baf2e5.js" crossorigin="anonymous"></script>
-</head>
-
-<body class="d-flex flex-column min-vh-100 bg-dark">
-    <div class="container">
+@extends('components.header')
+@section('title', 'Order Detail')
+@section('content')
+    <div class="container mt-5 pt-5">
         <div class="modal fade show d-block" tabindex="-1" id="RentForm">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -37,6 +22,7 @@
                                 </div>
                             @endif
                             <input type="hidden" value="{{ $order->order_id }}" name="orderID">
+                            <input type="hidden" value="{{ $order->car_id }}" name="carID">
                             <div class="mb-3">
                                 <label for="carName" class="form-label">Vehicle Name:</label>
                                 <input id="carName" type="text" class="form-control"
@@ -94,8 +80,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="rentPhone" class="form-label">Rent Phone Number:</label>
-                                    <input id="rentPhone" type="text" class="form-control"
-                                        value="{{ $order->user->phone }}" disabled readonly>
+                                    <input id="rentPhone" type="text" class="form-control" value="{{ $order->user->phone }}"
+                                        disabled readonly>
                                 </div>
                                 <div class="mb-3">
                                     <label for="rentStartDate" class="form-label">Rent Start Date:</label>
@@ -128,11 +114,9 @@
                                 @endlesse
                                 @lessor
                                     <a href="/pendingOrder" class="btn btn-secondary">Close</a>
-                                    <button type="submit" class="btn btn-danger"
-                                        formaction="/pendingOrder/decline">Decline
+                                    <button type="submit" class="btn btn-danger" formaction="/pendingOrder/decline">Decline
                                         Request</button>
-                                    <button type="submit" class="btn btn-success"
-                                        formaction="/pendingOrder/accept">Accept
+                                    <button type="submit" class="btn btn-success" formaction="/pendingOrder/accept">Accept
                                         Request</button>
                                 @endlessor
                             </div>
@@ -142,8 +126,4 @@
             </div>
         </div>
     </div>
-    @include('components.footer')
-
-</body>
-
-</html>
+@endsection

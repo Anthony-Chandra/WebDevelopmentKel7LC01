@@ -21,6 +21,7 @@ class OrderDetailController extends Controller
         $mytime = Carbon::now()->toDateString();
         $request->validate([
             'orderID' => 'required|integer',
+            'carID' => 'required|integer',
             'startDate' => 'required|after:' . $mytime,
             'duration' => 'required|integer|gt:0'
         ]);
@@ -31,6 +32,7 @@ class OrderDetailController extends Controller
         ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$start_date])
         ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$end_date])->pluck('history_id');
         $history = History::where('car_id', $request->carID)
+        ->where('status', 'Accepted')
         ->whereIn('history_id', $history)->first();
 
         $order = Order::whereBetween('start_rent_date', [$start_date, $end_date])
@@ -39,7 +41,6 @@ class OrderDetailController extends Controller
         ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$end_date])->pluck('order_id');
         $order = Order::where('car_id', $request->carID)
         ->whereIn('order_id', $order)->first();
-
         if (!$order && !$history) {
             $order = Order::find($request->orderID);
             $total_price = $request->duration * $order->car->price;

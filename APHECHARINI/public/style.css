@@ -1,3 +1,41 @@
+a {
+    text-decoration: none;
+}
+
+.contact-background {
+    margin-top: 5rem;
+    margin-top: 9rem;
+    background-image: url("storage/assets/carBg.jpg");
+    background-color: #cccccc;
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+#login-background {
+    background-size: cover;
+    background-image: linear-gradient(to bottom right, white, grey);
+}
+/* video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+} */
+
+/* body {
+    padding-bottom: 20px;
+}
+
 .content {
     padding-top: 6rem;
     padding-bottom: 1rem;
@@ -8,9 +46,6 @@
     color: green;
 }
 
-.navbar {
-    padding-top: 3rem;
-}
 
 .nav-link {
     margin-left: 2rem;
@@ -20,9 +55,9 @@
     margin-left: 2rem;
 }
 
-.login-background {
-    background-image: linear-gradient(to bottom right, white, grey);
-}
+
+
+
 
 .centering {
     text-align: center;
@@ -36,11 +71,11 @@ a {
 .margin-plus {
     padding-bottom: 20%;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    margin: 0;
 }
 
 h1 {
@@ -50,6 +85,8 @@ h1 {
 .bigger {
     font-size: 170%;
 }
+
+
 
 .contact-background {
     margin-top: 5rem;
@@ -61,7 +98,6 @@ h1 {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    /* opacity: 0.6; */
 }
 
 .contact-title {
@@ -76,4 +112,4 @@ h1 {
 .photo-sizing {
     width: 300px;
     height: 300px;
-}
+} */

@@ -28,6 +28,7 @@ class CarDetailController extends Controller
         ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$start_date])
         ->orWhereRaw('? BETWEEN start_rent_date and end_rent_date', [$end_date])->pluck('history_id');
         $history = History::where('car_id', $request->carID)
+        ->where('status', 'Accepted')
         ->whereIn('history_id', $history)->first();
 
         $order = Order::whereBetween('start_rent_date',[$start_date, $end_date])
@@ -52,7 +53,7 @@ class CarDetailController extends Controller
             $order->save();
             return redirect('/detail/' . $request->carID)->with('success', 'Order has been made');
         }
-        return redirect('/detail/' . $request->carID)->with('error', 'Date is overlapping with other order');
+        return redirect('/detail/' . $request->carID)->with('error', 'Date is overlapping with other');
     }
     public function editForm(Request $request){
         $request->validate([

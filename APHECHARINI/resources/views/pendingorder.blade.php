@@ -2,7 +2,7 @@
 @section('title', 'Catalogue')
 @section('content')
 
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column">
         <div class="container mt-5 pt-5">
             <header>
                 <h1 class="display-6 my-5 text-center fw-normal">Pending Order</h1>

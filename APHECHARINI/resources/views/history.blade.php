@@ -1,8 +1,7 @@
 @extends('components.header')
 @section('title', 'Catalogue')
 @section('content')
-
-    <body class="d-flex flex-column min-vh-100">
+    <body class="flex-column min-vh-100">
         <div class="container mt-5 pt-5">
             <header>
                 <h1 class="display-6 my-5 text-center fw-normal">History</h1>
@@ -14,7 +13,7 @@
             </header>
             <div class="d-flex flex-wrap justify-content-center">
                 @foreach ($histories as $history)
-                    <a href="/historyDetail/{{ $history->history_id }}" class="text-dark text-decoration-none">
+                    <a href="/historyDetail/{{ $history->history_id }}" class="text-dark">
                         <div class="card h-100 m-3" style="width: 24rem;">
                             <div class="ms-4 mt-2 mb-2">
                                 <h4 class="h3">{{ $history->car->car_name }}</h4>
