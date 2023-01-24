@@ -1,5 +1,5 @@
 @extends('components.header')
-@section('title', 'Catalogue')
+@section('title', 'Pending Orders')
 @section('content')
 
     <body class="d-flex flex-column">

@@ -1,5 +1,5 @@
 @extends('components.header')
-@section('title', 'Login')
+@section('title', 'Register')
 @section('content')
     <div class="img-fluid">
         <div id="login-background" class="w-100" style="width: 1526px; height: 1080px;">

@@ -1,5 +1,5 @@
 @extends('components.header')
-@section('title', 'Catalogue')
+@section('title', 'History')
 @section('content')
     <body class="flex-column min-vh-100">
         <div class="container mt-5 pt-5">

@@ -1,5 +1,5 @@
 @extends('components.header')
-@section('title', 'Add Vehicle')
+@section('title', 'History Detail')
 @section('content')
     <div class="container">
         <div class="modal fade show d-block" tabindex="-1" id="RentForm">

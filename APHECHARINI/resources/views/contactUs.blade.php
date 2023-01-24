@@ -1,5 +1,5 @@
 @extends('components.header')
-@section('title', 'home')
+@section('title', 'Contact Us')
 @section('content')
 
 {{-- .contact-title {

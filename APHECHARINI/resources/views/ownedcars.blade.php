@@ -1,5 +1,5 @@
 @extends('components.header')
-@section('title', 'Catalogue')
+@section('title', 'Owned Cars')
 @section('content')
 
 
