@@ -237,9 +237,9 @@
                 </div>
 
                 <div class="col-md-6">
-                    <img src="{{ url('storage/app/public/Vehicle/' . $car->car_picture) }}" class="fluid my-2 p-3"
+                    <img src="{{ url('storage/app/public/Vehicle/' . $car->car_picture) }}" class="img-fluid my-2 p-3"
                         alt="...">
-                    <div class="w-100 d-flex justify-content-center">
+                    <div class="w-100 d-flex justify-content-center mt-5">
                         @lesse
                             <a class="btn btn-secondary btn-lg text-center" data-bs-toggle="modal"
                                 data-bs-target="#RentForm">Rent Now</a>
