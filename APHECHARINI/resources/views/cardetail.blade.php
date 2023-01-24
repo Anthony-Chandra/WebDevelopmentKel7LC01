@@ -237,7 +237,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <img src="{{ url('storage/Vehicle/' . $car->car_picture) }}" class="fluid my-2 p-3"
+                    <img src="{{ url('storage/app/public/Vehicle/' . $car->car_picture) }}" class="fluid my-2 p-3"
                         alt="...">
                     <div class="w-100 d-flex justify-content-center">
                         @lesse

@@ -70,7 +70,7 @@
                                 @if ($profile->imageUrl == '-')
                                     <i class="bi bi-person-circle" style="font-size: 160px"></i>
                                 @else
-                                    <img src="{{ url('storage/assets/' . $profile->imageUrl) }}" alt="">
+                                    <img src="{{ url('storage/app/public/Profile/' . $profile->imageUrl) }}" style="width: 200px" alt="">
                                 @endif
                                 <input type="file" name="imgUrl" style="display:none">
                             </label>

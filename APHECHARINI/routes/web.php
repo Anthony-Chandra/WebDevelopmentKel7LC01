@@ -11,7 +11,9 @@ use App\Http\Controllers\OwnedCarsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PendingOrderController;
 use App\Http\Controllers\RentController;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
@@ -67,3 +69,17 @@ Route::get('/history/lessor', [HistoryController::class, 'lessorHistory'])->midd
 Route::get('/history/lesse', [HistoryController::class, 'lesseHistory'])->middleware(['auth', 'lesse']);
 Route::get('/historyDetail/{history_id}', [HistoryController::class, 'historyDetail'])->middleware(['auth']);
 
+Route::get('storage/app/public/Vehicle/{name}', function ($name) {
+    $content = Storage::get('public/Vehicle/' . $name);
+    $mime = Storage::mimeType('public/Vehicle/' . $name);
+    $response = Response::make($content, 200);
+    $response->header('Content-Type', $mime);
+    return $response;
+});
+Route::get('storage/app/public/Profile/{name}', function ($name) {
+    $content = Storage::get('public/Profile/' . $name);
+    $mime = Storage::mimeType('public/Profile/' . $name);
+    $response = Response::make($content, 200);
+    $response->header('Content-Type', $mime);
+    return $response;
+});

@@ -26,7 +26,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="w-75 mx-auto">
-                                    <img src={{ url('storage/Vehicle/' . $history->car->car_picture) }} class="img-fluid"
+                                    <img src={{ url('storage/app/public/Vehicle/' . $history->car->car_picture) }} class="img-fluid"
                                         alt="...">
                                 </div>
                                 <div class="row justify-content-around">

@@ -19,21 +19,22 @@ class OwnedCarsController extends Controller
     }
 
     public function doAddVehicle(Request $req){
-            $req->validate([
-            'car_name'=>'required|min:3',
-            'transmission'=>'required',
-            'seat'=>'required|lt:10',
-            'status'=>'required',
-            'description'=>'required|min:5',
-            'price'=>'required|numeric',
-            'car_image' =>'required|mimes:jpg,jpeg,png,gif'
+        $req->validate([
+            'car_name' => 'required|min:3',
+            'transmission' => 'required',
+            'seat' => 'required|lt:10',
+            'status' => 'required',
+            'description' => 'required|min:5',
+            'price' => 'required|numeric|lt:999999',
+            'car_image' => 'required|mimes:jpg,jpeg,png,gif'
         ]);
-
-        $image = $req->file('car_image');
-        $imageName = $image->getClientOriginalName();
-        Storage::putFileAs('public/Vehicle',$image,$imageName);
-
         $vehicle = new Car();
+        $insert_id = $vehicle->getNextID();
+        $image = $req->file('car_image');
+        $extension = $req->file('car_image')->getClientOriginalExtension();
+        $imageName = $insert_id.'.'.$extension;
+
+        Storage::putFileAs('/public/Vehicle',$image,$imageName);
         $vehicle->car_picture = $imageName;
         $vehicle->car_owner = auth()->user()->user_id;
         $vehicle->car_name = $req->car_name;
@@ -43,7 +44,6 @@ class OwnedCarsController extends Controller
         $vehicle->price = $req->price;
         $vehicle->description = $req->description;
         $vehicle->save();
-
         return redirect('ownedCars');
     }
 }

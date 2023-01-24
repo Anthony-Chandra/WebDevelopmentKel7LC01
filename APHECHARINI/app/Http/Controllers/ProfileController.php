@@ -25,8 +25,8 @@ class ProfileController extends Controller
         $url = $req->imgUrl;
         if($url != null){
             $image = $req->file('imgUrl');
-            $imageName = $image->getClientOriginalName();
-            Storage::putFileAs('public/assets',$image,$imageName);
+            $imageName = auth()->user()->user_id.'.'.$image->getClientOriginalExtension();
+            Storage::putFileAs('/public/Profile',$image,$imageName);
             $profile->imageUrl = $imageName;
         }
         $profile->username = $req->username;
